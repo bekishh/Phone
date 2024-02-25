@@ -36,11 +36,12 @@ public class Phone {
                     while (true) {
                         System.out.print("""
                                 ---------------------- Заметки ----------------------
-                                Какую комманду вы хотите выполнить?
+                                Какую команду вы хотите выполнить?
                                 1) Добавить заметку
-                                2) Все заметки
-                                3) Выйти в меню приложений
-                                                                
+                                2) Просмотреть все заметки
+                                3) Удалить заметку
+                                4) Выйти в меню приложений
+                                                        
                                 Ваше действие:\s""");
                         int noteCommand = scanner.nextInt();
                         switch (noteCommand) {
@@ -51,9 +52,12 @@ public class Phone {
                                 note.getAllNotes();
                                 break;
                             case 3:
+                                note.deleteNote();
+                                break;
+                            case 4:
                                 break;
                         }
-                        if (noteCommand == 3) {
+                        if (noteCommand == 4) {
                             break;
                         }
                     }

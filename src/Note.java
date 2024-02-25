@@ -22,4 +22,27 @@ public class Note extends Phone {
         }
         System.out.println(allNotes);
     }
+
+    public void deleteNote() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите номер заметки, которую хотите удалить: ");
+        int noteNumber = scanner.nextInt();
+
+        if (noteNumber >= 1 && noteNumber <= notes.length) {
+            String[] newNotes = new String[notes.length - 1];
+            int newIndex = 0;
+            for (int i = 0; i < notes.length; i++) {
+                if (i + 1 == noteNumber) {
+                    continue;
+                }
+                newNotes[newIndex++] = notes[i];
+            }
+            notes = newNotes;
+            notesLength--;
+            System.out.println("Заметка успешно удалена.");
+        } else {
+            System.out.println("Некорректный номер заметки.");
+        }
+    }
+
 }
